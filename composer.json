@@ -1,9 +1,10 @@
 {
     "name": "jmj/jushuitan-sdk",
-    "description": "Jushuitan ERP SDK",
+    "description": "Jushuitan ERP SDK,用于PHP对接聚水潭开放平台相关接口",
+    "keywords": ["jushuitan","sdk","聚水潭"],
     "type": "library",
     "license": "MIT",
-    "homepage": "https://escapeplan.me/",
+    "homepage": "https://github.com/Smilefish2/jushuitan-sdk",
     "authors": [
         {
             "name": "JMJones",
