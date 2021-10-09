@@ -37,7 +37,7 @@ use JushuitanSdk\Config;
 use JushuitanSdk\Services\BaseService;
 
 $config = [
-    'debug' => true,
+    'shop_id' => 0,
     'sandbox' => true,
     'partnerid' => 'ywv5jGT8ge6Pvlq3FZSPol345asd',
     'partnerkey' => 'ywv5jGT8ge6Pvlq3FZSPol2323',
