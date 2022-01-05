@@ -325,11 +325,11 @@ class Client
     /**
      * 获取URL查询参数
      *
-     * @param $method
-     * @param $requestParameters
+     * @param string $method
+     * @param array $requestParameters
      * @return array
      */
-    protected function getQueryParameters($method, $requestParameters): array
+    public function getQueryParameters(string $method, array $requestParameters = []): array
     {
         $urlParameters = $this->generateSignature($method, $requestParameters);
 
@@ -348,11 +348,11 @@ class Client
     /**
      * 生成签名参数
      *
-     * @param $method
-     * @param $requestParameters
+     * @param string $method
+     * @param array $requestParameters
      * @return array
      */
-    private function generateSignature($method, $requestParameters): array
+    private function generateSignature(string $method, array $requestParameters): array
     {
 
         $systemParams = $this->getSystemParameters($method);
