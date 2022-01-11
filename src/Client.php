@@ -331,7 +331,8 @@ class Client
      */
     public function getQueryParameters(string $method, array $requestParameters = []): array
     {
-        $urlParameters = $this->generateSignature($method, $requestParameters);
+        $systemParams = $this->getSystemParameters($method);
+        $urlParameters = $this->generateSignature($systemParams, $requestParameters);
 
         if($this->isQimen($method)) {
             foreach($requestParameters as $key=>$value) {
@@ -348,15 +349,12 @@ class Client
     /**
      * 生成签名参数
      *
-     * @param string $method
+     * @param array $systemParams
      * @param array $requestParameters
      * @return array
      */
-    private function generateSignature(string $method, array $requestParameters): array
+    public function generateSignature(array $systemParams, array $requestParameters): array
     {
-
-        $systemParams = $this->getSystemParameters($method);
-
         $signString = '';
         ksort($systemParams);
         // 奇门接口
@@ -369,7 +367,7 @@ class Client
 
             // 如果有业务参数则合并
             if($requestParameters != null) {
-                $systemParams = array_merge($systemParams,$requestParameters);
+                $systemParams = array_merge($systemParams, $requestParameters);
                 ksort($systemParams);
 
                 foreach($systemParams as $key => $value) {

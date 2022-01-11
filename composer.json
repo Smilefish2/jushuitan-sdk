@@ -23,5 +23,11 @@
         "psr-4": {
             "JushuitanSdk\\": "src/"
         }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.0.1-dev",
+            "dev-development": "0.2.x-dev"
+        }
     }
 }
