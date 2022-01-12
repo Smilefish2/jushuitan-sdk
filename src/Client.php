@@ -408,7 +408,7 @@ class Client
      */
     private function getSystemParameters(string $method): array
     {
-        # 默认系统参数
+        // 默认系统参数
         $systemParams = [
             'partnerid' => $this->config->getPartnerId(),
             'token' => $this->config->getToken(),
@@ -416,7 +416,7 @@ class Client
             'ts' => time()
         ];
 
-        //是否包含jst
+        // 是否包含jst
         if ($this->isQimen($method)) {
             $systemParams['sign_method'] = 'md5';
             $systemParams['format'] = 'json';
