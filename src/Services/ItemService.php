@@ -21,6 +21,7 @@ use JushuitanSdk\Client;
 class ItemService
 {
     const SKU_QUERY = 'sku.query';
+    const SKUMAP_UPLOAD = 'jushuitan.skumap.upload';
 
     /**
      * API客户端
@@ -37,8 +38,8 @@ class ItemService
     }
 
     /**
-     *普通商品查询
-     *
+     * 普通商品查询（按sku查询）
+     * @see https://open.jushuitan.com/document/2167.html
      * @param array $params
      * @return array|\JushuitanSdk\Http\Response|object|\Psr\Http\Message\ResponseInterface
      * @throws \JushuitanSdk\Exceptions\HttpException
@@ -46,6 +47,19 @@ class ItemService
      */
     public function skuQuery(array $params = []) {
         return $this->client->request(self::SKU_QUERY, $params);
+    }
+
+    /**
+     * 店铺商品资料上传
+     *
+     * @see https://open.jushuitan.com/document/2241.html
+     * @param array $params
+     * @return array|\JushuitanSdk\Http\Response|object|\Psr\Http\Message\ResponseInterface
+     * @throws \JushuitanSdk\Exceptions\HttpException
+     * @throws \JushuitanSdk\Exceptions\InvalidConfigException
+     */
+    public function skuMapUpload(array $params = []) {
+        return $this->client->request(self::SKUMAP_UPLOAD, $params);
     }
 
 }

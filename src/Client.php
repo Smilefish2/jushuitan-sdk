@@ -325,13 +325,14 @@ class Client
     /**
      * 获取URL查询参数
      *
-     * @param $method
-     * @param $requestParameters
+     * @param string $method
+     * @param array $requestParameters
      * @return array
      */
-    protected function getQueryParameters($method, $requestParameters): array
+    public function getQueryParameters(string $method, array $requestParameters = []): array
     {
-        $urlParameters = $this->generateSignature($method, $requestParameters);
+        $systemParams = $this->getSystemParameters($method);
+        $urlParameters = $this->generateSignature($systemParams, $requestParameters);
 
         if($this->isQimen($method)) {
             foreach($requestParameters as $key=>$value) {
@@ -348,15 +349,12 @@ class Client
     /**
      * 生成签名参数
      *
-     * @param $method
-     * @param $requestParameters
+     * @param array $systemParams
+     * @param array $requestParameters
      * @return array
      */
-    private function generateSignature($method, $requestParameters): array
+    public function generateSignature(array $systemParams, array $requestParameters): array
     {
-
-        $systemParams = $this->getSystemParameters($method);
-
         $signString = '';
         ksort($systemParams);
         // 奇门接口
@@ -369,7 +367,7 @@ class Client
 
             // 如果有业务参数则合并
             if($requestParameters != null) {
-                $systemParams = array_merge($systemParams,$requestParameters);
+                $systemParams = array_merge($systemParams, $requestParameters);
                 ksort($systemParams);
 
                 foreach($systemParams as $key => $value) {
@@ -410,7 +408,7 @@ class Client
      */
     private function getSystemParameters(string $method): array
     {
-        # 默认系统参数
+        // 默认系统参数
         $systemParams = [
             'partnerid' => $this->config->getPartnerId(),
             'token' => $this->config->getToken(),
@@ -418,7 +416,7 @@ class Client
             'ts' => time()
         ];
 
-        //是否包含jst
+        // 是否包含jst
         if ($this->isQimen($method)) {
             $systemParams['sign_method'] = 'md5';
             $systemParams['format'] = 'json';

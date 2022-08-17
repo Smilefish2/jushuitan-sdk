@@ -11,6 +11,8 @@
             "email": "yang.jmj@gmail.com"
         }
     ],
+    "prefer-stable": true,
+    "minimum-stability": "dev",
     "require": {
         "php": ">=7.2",
         "ext-openssl": "*",
@@ -20,6 +22,11 @@
     "autoload": {
         "psr-4": {
             "JushuitanSdk\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "dev"
         }
     }
 }

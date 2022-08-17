@@ -57,7 +57,3 @@ OR
 
 var_dump($jstClient->request("shops.query", $params));
 ```
-
-# License
-
-MIT @ [JMJ](http://escapeplan.me)
