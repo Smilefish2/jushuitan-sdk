@@ -9,6 +9,8 @@
 线上环境API地址: https://open.erp321.com/api/open/query.aspx;
 线上环境接口参数申请文档：https://open.jushuitan.com/document/2122.html
 
+在线API测试工具（正式和沙箱都可用）：https://open.jushuitan.com/tools.aspx
+
 测试环境授权申请QQ群：10784273、226257083
 
 企业版客户(有精细化库存管理)： 
