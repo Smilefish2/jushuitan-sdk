@@ -2,8 +2,6 @@
 
 !!!非官方SDK，用于PHP对接 [聚水潭开放平台](http://open.jushuitan.com/document.html) 相关接口，完成需要的业务逻辑。
 
->!!!因为生产环境必须的货号问题未解决，所以还未在生产环境使用过，仅供参考，谨慎使用。
-
 # 聚水潭通用测试账号
 ```
 沙箱测试登录地址: https://c.jushuitan.com/login.aspx;
