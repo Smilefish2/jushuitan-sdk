@@ -59,3 +59,8 @@ OR
 
 var_dump($jstClient->request("shops.query", $params));
 ```
+
+# 注意事项
+需要自行处理Token一年有效期问题，接口文档：[刷新token(必接)](https://open.jushuitan.com/document/2135.html)
+
+MIT, see [LICENSE](/LICENSE)

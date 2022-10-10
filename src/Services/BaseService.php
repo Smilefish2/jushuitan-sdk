@@ -21,6 +21,7 @@ use JushuitanSdk\Client;
 class BaseService
 {
     const SHOPS_QUERY = 'shops.query';
+    const REFRESH_TOKEN = 'refresh.token';
     const LOGISTICS_COMPANY_QUERY = 'logisticscompany.query';
 
     /**
@@ -38,6 +39,19 @@ class BaseService
     }
 
     /**
+     * 刷新token(必接)
+     * @see https://open.jushuitan.com/document/2135.html
+     *
+     * @param array $params
+     * @return array|\JushuitanSdk\Http\Response|object|\Psr\Http\Message\ResponseInterface
+     * @throws \JushuitanSdk\Exceptions\HttpException
+     * @throws \JushuitanSdk\Exceptions\InvalidConfigException
+     */
+    public function refreshToken(array $params = []) {
+        return $this->client->request(self::REFRESH_TOKEN, $params);
+    }
+
+    /**
      * 查询所有店铺
      * @see https://open.jushuitan.com/document/14.html
      *
@@ -52,6 +66,7 @@ class BaseService
 
     /**
      * 物流公司查询
+     * @see https://open.jushuitan.com/document/2036.html
      *
      * @param array $params
      * @return array|\JushuitanSdk\Http\Response|object|\Psr\Http\Message\ResponseInterface
